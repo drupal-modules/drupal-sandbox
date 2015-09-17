@@ -1,0 +1,38 @@
+# Usage: drush make
+
+# Core and API version
+core: 7.x
+api: 2
+
+
+defaults:
+  projects:
+    subdir: "contrib" # The default for projects.
+
+projects:
+
+  # Library modules.
+
+  devel:
+    version: ~
+    subdir: "development"
+
+  simplehtmldom:
+    version: ~
+    subdir: "development"
+
+  coder:
+    version: ~
+    subdir: "development"
+
+  hacked:
+    version: ~
+    subdir: "development"
+
+  styleguide:
+    version: ~
+    subdir: "development"
+
+  masquerade:
+    version: ~
+    subdir: "development"
