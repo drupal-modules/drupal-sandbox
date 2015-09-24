@@ -1,7 +1,14 @@
-DOCROOT="docroot"
-åll: make install run
+SHELL := /bin/bash -x
 
-make:
+DOCROOT="docroot"
+all: check make install run
+
+check:
+	@type drush
+
+make:	docroot
+
+docroot:
 	drush make make-d7.yml $(DOCROOT)
 
 update:
@@ -16,5 +23,9 @@ run:
 devel:
 	drush -r $(DOCROOT) make --yes --no-core drush-includes/contrib-devel.yml
 
+vm:
+	vagrant up
+
 clean:
 	chmod -R u+w $(DOCROOT)
+	drush -r $(DOCROOT) archive-backup --tar-options="--remove-files"

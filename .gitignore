@@ -2,6 +2,9 @@
 docroot
 .db.sqlite
 
+# Ignore vagrant VMs.
+.vagrant
+
 # Ignore configuration files that may contain sensitive information.
 build.properties
 
