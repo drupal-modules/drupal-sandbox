@@ -3,8 +3,8 @@ core: 7.x
 
 projects:
   drupal:
-    version: "7.39"
+    version: ~
 
 includes:
-  - drush-includes/contrib-core.yml
-
+  - includes/contrib-core.yml
+  - includes/profile.yml

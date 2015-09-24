@@ -11,29 +11,45 @@ defaults:
 
 projects:
 
-  # Library modules.
-  libraries: "2.2"
-  ctools: "1.9"
-  jquery_update: "3.0-alpha2"
-  service_container: "1.0-beta5"
-  registry_autoload: "1.3"
+  # API and library modules.
+  libraries:
+    version: ~
+  ctools:
+    version: ~
+  jquery_update:
+    version: ~
+  service_container:
+    version: ~
+  registry_autoload:
+    version: ~
+  strongarm:
+    version: ~
 
   # Entity
-  entity: "1.6"
-  entityreference: "1.1"
-  file_entity: "2.0-beta2"
+  entity:
+    version: ~
+  entityreference:
+    version: ~
+  file_entity:
+    version: ~
 
   # Views
   #views: "3.11"
 
-  token: "1.6"
-  panels: "3.5"
-  email: "1.3"
-  context: "3.6"
-  strongarm: "2.0"
-  features: "2.6"
-  features_extra: "1.0"
-  field_group: "1.4"
+  token:
+    version: ~
+  panels:
+    version: ~
+  email:
+    version: ~
+  context:
+    version: ~
+
+  # Features
+  features:
+    version: ~
+  features_extra:
+    version: ~
 
   # Menu
   #menu_block: "2.7"
@@ -55,6 +71,8 @@ projects:
   field_group_ajaxified_multipage: "1.0-beta2"
 
   # Fields.
+  field_group:
+    version: ~
   conditional_fields: "3.x-dev"
   addressfield: "1.1"
 

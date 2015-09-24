@@ -1,0 +1,32 @@
+name = Drupal 7
+description = Drupal 7 Sandbox
+core = 7.x
+
+; Install Drupal core modules
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = file
+dependencies[] = dblog
+dependencies[] = dashboard
+dependencies[] = shortcut
+dependencies[] = field_ui
+
+; Views
+dependencies[] = views_ui
+
+; Panels
+dependencies[] = panels
+
+; Features
+dependencies[] = features
+
+; Entity Forms
+dependencies[] = entityform

@@ -1,0 +1,11 @@
+api: 2
+core: 7.x
+
+projects:
+  drupal7:
+    type: "profile"
+    subdir: ""
+    download:
+      type: "copy"
+      url: "file://./profile"
+

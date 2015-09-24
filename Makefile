@@ -1,16 +1,20 @@
+DOCROOT="docroot"
 åll: make install run
 
 make:
-	drush make make-d7.yml docroot/
+	drush make make-d7.yml $(DOCROOT)
 
 update:
-	drush make --no-core make-d7.yml docroot/
+	drush make --no-core make-d7.yml $(DOCROOT)
 
 install:
-	drush -r docroot/ si -y --db-url="sqlite://.db.sqlite" --account-pass=admin
+	drush -r $(DOCROOT) si -vy --db-url="sqlite://.db.sqlite" --account-pass=admin drupal7
 
 run:
-	drush -r docroot/ rs
+	drush -r $(DOCROOT) rs :8888/admin
 
 devel:
-	drush -r docroot/ make --yes --no-core drush-includes/contrib-devel.yml
+	drush -r $(DOCROOT) make --yes --no-core drush-includes/contrib-devel.yml
+
+clean:
+	chmod -R u+w $(DOCROOT)
