@@ -1,7 +1,7 @@
 SHELL   := /bin/bash -x
 DOCROOT := "docroot"
 HOST 	  := $(shell hostname)
-all: check make install run
+all: check make install
 
 check:
 	@type drush

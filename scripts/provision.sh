@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 #
 # Provisioning script for vagrant, see: Vagrantfile
