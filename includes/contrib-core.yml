@@ -34,7 +34,8 @@ projects:
     version: ~
 
   # Views
-  #views: "3.11"
+  views:
+    version: ~
 
   token:
     version: ~
@@ -58,7 +59,10 @@ projects:
   entityform:
     version: "2.0-rc1"
     patch:
-      - "https://www.drupal.org/files/issues/entityform-hide-instructions-if-empty-2457737-3.patch"
+      intro-form: # https://www.drupal.org/node/2457737
+        url: "https://www.drupal.org/files/issues/entityform-hide-instructions-if-empty-2457737-3.patch"
+      sqlite-fix: # https://www.drupal.org/node/1876872
+        url: "https://www.drupal.org/files/issues/entityform-sqlite_error-1876872-28.patch"
   ife:
     version: "2.0-alpha2"
     patch:
