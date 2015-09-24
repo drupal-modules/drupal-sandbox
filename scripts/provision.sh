@@ -7,11 +7,16 @@
 # Initialize script.
 [ -d "/vagrant" ] || { echo "This script needs to be run within vagrant VM."; exit 1; }
 shopt -s globstar # Enable globbing, just for fun.
+set -o vi         # Enable vi syntax in shell.
 cd /vagrant
 
 # Perform an unattended installation of a Debian packages.
 sudo ex +"%s@DPkg@//DPkg" -cwq /etc/apt/apt.conf.d/70debconf
 sudo dpkg-reconfigure debconf -f noninteractive -p critical
+
+# Append settings into ~/.bashrc and reload.
+ex +'$s@$@\rexport PATH=\~/.composer/vendor/bin:$PATH@' -cwq /etc/bash.bashrc # ~root/.bashrc
+source ~/.bashrc
 
 # Give vagrant write permission for /opt.
 sudo chown vagrant:vagrant /opt
@@ -26,12 +31,17 @@ sudo apt-get -qy install language-pack-en
 # Install useful utils.
 sudo apt-get -qy install links html2text
 
-# Install PHP.
-sudo apt-get -qy install php5-cli
+# Install PHP and required extensions.
+sudo apt-get -qy install php5-cli php-pear php5-gd
+
+# Install database driver and required extensions.
+sudo apt-get -qy install sqlite3 php5-sqlite
 
 # Install composer (https://getcomposer.org/) via PHP.
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-composer -nq update
+sudo -u vagrant composer -nqq global update
+ln -vs /vagrant/composer.json ~vagrant/.composer/
+sudo -u vagrant composer -nqq global update
 
 # Add version control for /opt to track the changes.
 git init /opt
