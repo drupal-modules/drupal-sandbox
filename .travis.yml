@@ -8,12 +8,20 @@
 # Commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
 before_install:
   - env
-  - sudo apt-get update
+  - composer self-update && composer --version
+  - gem update --system && gem --version
+#- rvm update
+#- rvm reload
+#- rvm get stable
+#- rvm use system --default
+#- rvm list known
+  #- curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer && composer --version
+  - sudo apt-get -qy update
 
 # Install
 # Use this to install any prerequisites or dependencies necessary to run your build.
 install:
-  - sudo apt-get install vagrant
+  - sudo apt-get -qy install vagrant
 # - pip install -r requirements.txt
 
 # Before Script
@@ -25,6 +33,7 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   - set -e # This makes build to fail on first error.
+  - COMPOSER_BIN_DIR=~/bin composer -nqq install --prefer-source --no-interaction --optimize-autoloader
   - make
   - make vm
 
@@ -42,9 +51,15 @@ after_failure:
 after_script:
   - pwd
 
+# Customize when the notification emails are sent.
 notifications:
-  email: false
+  on_success: never
+  on_failure: always
 
 language: php
-python:
-  - "5.3"
+
+php:
+  - 5.5
+
+rvm:
+  - 1.9.3

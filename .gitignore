@@ -1,6 +1,7 @@
 # Ignore drush generated files.
 docroot
 .db.sqlite
+composer.lock
 
 # Ignore vagrant VMs.
 .vagrant
