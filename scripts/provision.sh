@@ -42,7 +42,7 @@ sudo apt-get -qy install sqlite3 php5-sqlite
 
 # Install composer (https://getcomposer.org/) via PHP.
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-COMPOSER_HOME=/var/lib/composer COMPOSER_BIN_DIR=/usr/local/bin COMPOSER_VENDOR_DIR=/var/lib/composer/vendor composer -nqq update
+COMPOSER_HOME=/var/lib/composer COMPOSER_BIN_DIR=/usr/local/bin COMPOSER_VENDOR_DIR=/var/lib/composer/vendor composer -nqq --prefer-source --no-interaction --optimize-autoloader
 
 # Add version control for /opt to track the changes.
 git init /opt
