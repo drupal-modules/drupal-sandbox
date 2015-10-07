@@ -1,0 +1,28 @@
+# Usage: drush make
+
+# Core and API version
+core: 7.x
+api: 2
+
+projects:
+
+  commerce:
+    version: ~
+    subdir: "commerce"
+
+  commerce_paypal:
+    version: ~
+    subdir: "commerce"
+
+  commerce_paypoint:
+    version: ~
+    subdir: "commerce"
+
+  commerce_features:
+    version: ~
+    subdir: "commerce"
+
+  commerce_uuid:
+    version: ~
+    subdir: "commerce"
+
