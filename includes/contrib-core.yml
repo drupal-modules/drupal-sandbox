@@ -77,6 +77,8 @@ projects:
   # Fields.
   field_group:
     version: ~
+  field_validation:
+    version: ~
   conditional_fields: "3.x-dev"
   addressfield: "1.1"
 
